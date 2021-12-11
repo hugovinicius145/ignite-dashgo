@@ -41,11 +41,19 @@ export async function getUsers(page: number): Promise<GetUsersResponse> {
   };
 }
 
-export function useUsers(page: number, options?: UseQueryOptions) {
+// export function useUsers(page: number, options?: UseQueryOptions) {
+//   return (
+//     useQuery(['users', page], () => getUsers(page),  {
+//       staleTime: 1000 * 60 * 10, // 10 minutes
+//       // ...options,
+//     })
+//   );
+// }
+
+export function useUsers(page: number) {
   return (
     useQuery(['users', page], () => getUsers(page),  {
       staleTime: 1000 * 60 * 10, // 10 minutes
-      // ...options,
     })
   );
 }
